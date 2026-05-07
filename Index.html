@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<body style="background:black;color:white;font-family:Arial">
+
+<h1>Ultimate AI Agent</h1>
+
+<input id="msg">
+
+<button onclick="send()">Send</button>
+
+<div id="chat"></div>
+
+<script>
+
+async function send(){
+
+let msg=document.getElementById("msg").value
+
+let r=await fetch("/chat",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+message:msg
+})
+
+})
+
+let data=await r.json()
+
+document.getElementById("chat").innerHTML+=`
+<p><b>You:</b> ${msg}</p>
+<p><b>AI:</b> ${data.reply}</p>
+`
+}
+
+</script>
+
+</body>
+</html>
