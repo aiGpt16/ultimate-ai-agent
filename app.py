@@ -3,7 +3,7 @@ import google.generativeai as genai
 
 app = Flask(__name__)
 
-GEMINI_KEY ="AIzaSyD8N3b4RzYI_Nfjdj9qMU6KpqqIQGDlSgs'
+GEMINI_KEY = "AIzaSyD8N3b4RzYI_Nfjdj9qMU6KpqqIQGDlSgs"
 
 genai.configure(api_key=GEMINI_KEY)
 
@@ -37,4 +37,4 @@ def chat():
 app.run(
     host="0.0.0.0",
     port=5000
-  )
+)
